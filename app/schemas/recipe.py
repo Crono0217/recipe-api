@@ -1,13 +1,21 @@
-from sqlalchemy import Column, Integer, String, Any, Text
-from app.db.database import Base
+from pydantic import BaseModel
 
+class RecipeCreate(BaseModel):
+    title:str
+    author_name:str
+    ingredients:str
+    cook_time:str
 
-class User(Base):
-    __tablename__ = "recipes"
+class RecipeRead(BaseModel):
+    id: int
+    title:str
+    author_name:str
+    ingredients:str
+    cook_time:str
 
-    id = Column(Integer, primary_key=True, index=True)
-    title = Column(String, nullable=False)
-    author_name = Column(String, nullable=False)
-    ingredients = Column(Text, nullable=False)
-    cook_time = Column(Any, nullable=False)
-
+class RecipeUpdate(BaseModel):
+    #no id due to id coming from the path, not the body ex. /recipes/{id}
+    title:str | None =  None
+    author_name:str | None =  None
+    ingredients:str | None =  None
+    cook_time:str | None =  None
