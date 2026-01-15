@@ -1,5 +1,5 @@
-from app.db.database import engine, Base
-from app.models.recipe import Recipe
+from app.db import engine, Base
+from app.models import Recipe
 
 def create_tables():
     Base.metadata.create_all(bind=engine)
