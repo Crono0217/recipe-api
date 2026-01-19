@@ -7,14 +7,14 @@ class RecipeCreate(BaseModel):
     cook_time:str
 
 class RecipeRead(BaseModel):
-    id: int
+    id:int
     title:str
     author_name:str
     ingredients:str
     cook_time:str
 
 class RecipeUpdate(BaseModel):
-    #no id due to id coming from the path, not the body ex. /recipes/{id}
+    id:int
     title:str | None =  None
     author_name:str | None =  None
     ingredients:str | None =  None

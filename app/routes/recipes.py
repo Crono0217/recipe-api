@@ -28,9 +28,9 @@ def route_get_recipes(db:Session = Depends(get_db_session)):
     return get_recipes(db)
 
 #update route
-@router.put("/recipe/{recipe_id}")
-def route_update_recipe(title: str, author_name:str, ingredients:str, cook_time:str, db: Session = Depends(get_db_session)):
-    return update_recipe(db, title, author_name, ingredients, cook_time)
+@router.patch("/recipe/{recipe_id}")
+def route_update_recipe(recipe_id: int, title: str, author_name:str, ingredients:str, cook_time:str, db: Session = Depends(get_db_session)):
+    return update_recipe(db, recipe_id, title, author_name, ingredients, cook_time)
     
 #delete route
 @router.delete("/recipe/{recipe_id}")
