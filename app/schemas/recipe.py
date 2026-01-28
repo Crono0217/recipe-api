@@ -14,7 +14,6 @@ class RecipeRead(BaseModel):
     cook_time:str
 
 class RecipeUpdate(BaseModel):
-    id:int
     title:str | None =  None
     author_name:str | None =  None
     ingredients:str | None =  None
