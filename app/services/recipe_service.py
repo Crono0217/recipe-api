@@ -26,6 +26,7 @@ def update_recipe(db:Session, recipe_id: int, updates: RecipeUpdate):
     if not recipe:
         return None
     
+    #convert to dictionary to iterate to prevent manually checking with if statements | scales better
     update_data = updates.model_dump(exclude_none=True)
 
     for field, value in update_data.items():
